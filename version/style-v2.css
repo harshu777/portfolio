@@ -1,0 +1,886 @@
+/* =========================================
+   NEBULA THEME CONFIGURATION
+   ========================================= */
+:root {
+    /* Deep Void Palette */
+    --bg-void: #0B0716;
+    --bg-void-darker: #05030A;
+
+    /* Neon Accents */
+    --neon-magenta: #FF007F;
+    --neon-magenta-glow: rgba(255, 0, 127, 0.4);
+    --neon-blue: #00F0FF;
+    --neon-blue-glow: rgba(0, 240, 255, 0.4);
+    --neon-violet: #B026FF;
+    --neon-violet-glow: rgba(176, 38, 255, 0.4);
+
+    /* Glass / Bento Cards */
+    --bento-bg: rgba(20, 15, 35, 0.6);
+    --bento-border: rgba(255, 255, 255, 0.05);
+    --bento-border-hover: rgba(255, 0, 127, 0.3);
+
+    /* Typography */
+    --text-pure: #FFFFFF;
+    --text-muted: #A39DB2;
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* =========================================
+   BASE RESET & BACKGROUND 
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-void);
+    color: var(--text-pure);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Noise overlay for texture */
+.noise-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opactiy='0.05'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-void-darker);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 0, 127, 0.3);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-magenta);
+}
+
+h1,
+h2,
+h3,
+.logo,
+.eyebrow {
+    font-family: var(--font-heading);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================================
+   AMBIENT LIGHTS (MOUSE TRACKED)
+   ========================================= */
+.void-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(150px);
+    z-index: -1;
+    pointer-events: none;
+    transition: transform 0.2s cubic-bezier(0.1, 0.7, 1.0, 0.1);
+}
+
+.magenta-glow {
+    width: 600px;
+    height: 600px;
+    background: var(--neon-magenta-glow);
+    top: -10%;
+    left: 10%;
+}
+
+.blue-glow {
+    width: 500px;
+    height: 500px;
+    background: var(--neon-blue-glow);
+    bottom: -10%;
+    right: 10%;
+}
+
+.violet-glow {
+    width: 700px;
+    height: 700px;
+    background: rgba(176, 38, 255, 0.15);
+    top: 30%;
+    left: 40%;
+}
+
+/* =========================================
+   TYPOGRAPHY & UTILS
+   ========================================= */
+.text-neon-gradient {
+    background: linear-gradient(135deg, var(--neon-magenta), var(--neon-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    text-shadow: 0 0 30px rgba(255, 0, 127, 0.3);
+}
+
+.eyebrow {
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--neon-blue);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* =========================================
+   NAVIGATION (PILL STYLE)
+   ========================================= */
+.pill-nav {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 1300px;
+    background: rgba(11, 7, 22, 0.7);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--bento-border);
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 25px;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.v2-badge {
+    font-size: 0.65rem;
+    background: var(--neon-magenta);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 800;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.btn-neon {
+    background: transparent;
+    border: 1px solid var(--neon-magenta);
+    color: var(--neon-magenta);
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.1);
+}
+
+.btn-neon:hover {
+    background: var(--neon-magenta);
+    color: #fff;
+    box-shadow: 0 0 25px var(--neon-magenta-glow);
+}
+
+/* =========================================
+   BENTO GRID LAYOUT
+   ========================================= */
+.bento-container {
+    max-width: 1300px;
+    margin: 130px auto 100px;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(280px, auto);
+    gap: 20px;
+}
+
+/* Standard Bento Card */
+.bento-card {
+    background: var(--bento-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--bento-border);
+    border-radius: 30px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Interactive pseudo-element for hover reflections */
+.bento-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.06) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.bento-card:hover::after {
+    opacity: 1;
+}
+
+.bento-card:hover {
+    border-color: var(--bento-border-hover);
+}
+
+/* Card Content Standardizes text */
+.bento-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+}
+
+.bento-card p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Bento Spans */
+.hero-card {
+    grid-column: span 2;
+    grid-row: span 2;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.stack-card {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+.project-card {
+    grid-column: span 2;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+.service-card {
+    grid-column: span 1;
+    justify-content: center;
+    text-align: center;
+}
+
+.project-card-tall {
+    grid-column: span 1;
+    grid-row: span 2;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.widget-card {
+    grid-column: span 2;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* =========================================
+   SPECIFIC BENTO CARDS 
+   ========================================= */
+
+/* Hero Card */
+.hero-title {
+    font-size: 3.8rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.hero-desc {
+    max-width: 400px;
+    margin-bottom: 35px;
+    font-size: 1.1rem !important;
+}
+
+.btn-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.btn-text i {
+    color: var(--neon-magenta);
+    transition: transform 0.3s ease;
+}
+
+.btn-text:hover i {
+    transform: translateX(5px);
+}
+
+/* 3D Abstract Ring Reactor */
+.hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    perspective: 1000px;
+}
+
+.reactor-core {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: floatCore 8s infinite ease-in-out;
+}
+
+.ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 0, 127, 0.2);
+    box-shadow: inset 0 0 20px rgba(255, 0, 127, 0.1), 0 0 20px rgba(255, 0, 127, 0.2);
+}
+
+.ring-1 {
+    animation: spin 10s infinite linear;
+    border-color: rgba(0, 240, 255, 0.4);
+}
+
+.ring-2 {
+    animation: spin 15s infinite linear reverse;
+    width: 140px;
+    height: 140px;
+    top: 30px;
+    left: 30px;
+    border-color: rgba(176, 38, 255, 0.5);
+    transform: rotateX(60deg);
+}
+
+.ring-3 {
+    animation: spin 20s infinite linear;
+    width: 80px;
+    height: 80px;
+    top: 60px;
+    left: 60px;
+    border-color: rgba(255, 0, 127, 0.6);
+    transform: rotateY(60deg);
+}
+
+.core-spark {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    top: 90px;
+    left: 90px;
+    box-shadow: 0 0 40px 10px var(--neon-magenta), 0 0 80px 20px var(--neon-blue);
+    animation: pulseSpark 2s infinite ease-in-out;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate3d(1, 1, 1, 360deg);
+    }
+}
+
+@keyframes floatCore {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+@keyframes pulseSpark {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+}
+
+/* Stack Grid inside Bento */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.card-icon {
+    font-size: 1.8rem;
+    color: var(--neon-blue);
+}
+
+.stack-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.stack-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.stack-item:hover {
+    background: rgba(0, 240, 255, 0.1);
+    border-color: rgba(0, 240, 255, 0.3);
+    color: var(--neon-blue);
+    transform: translateY(-3px);
+}
+
+/* Project Cards */
+.project-visual {
+    width: 220px;
+    height: 100%;
+    min-height: 200px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.ak-theme {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(0, 0, 0, 0.5));
+    border: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+.leticia-theme {
+    width: 100%;
+    height: 200px;
+    margin-top: 20px;
+    background: linear-gradient(135deg, rgba(255, 0, 127, 0.1), rgba(0, 0, 0, 0.5));
+    border: 1px solid rgba(255, 0, 127, 0.2);
+}
+
+.large-icon {
+    font-size: 5rem;
+    opacity: 0.5;
+    color: #fff;
+    z-index: 2;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .large-icon,
+.project-card-tall:hover .large-icon {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.ak-theme .large-icon {
+    color: var(--neon-blue);
+}
+
+.leticia-theme .large-icon {
+    color: var(--neon-magenta);
+}
+
+.mockup-shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: skewX(-20deg);
+    animation: shimmer 4s infinite;
+}
+
+@keyframes shimmer {
+    100% {
+        left: 200%;
+    }
+}
+
+.pulse-ring {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid var(--neon-magenta);
+    animation: ripple 3s infinite cubic-bezier(0.1, 0.8, 0.3, 1);
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+.bento-tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.bento-tag {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: rgba(0, 240, 255, 0.15);
+    color: var(--neon-blue);
+}
+
+.bento-tag.magenta {
+    background: rgba(255, 0, 127, 0.15);
+    color: var(--neon-magenta);
+}
+
+.card-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--text-pure);
+    color: var(--bg-void);
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
+.card-cta:hover {
+    transform: scale(1.1) rotate(45deg);
+}
+
+/* Service Box */
+.service-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(176, 38, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 2.5rem;
+    color: var(--neon-violet);
+    border: 1px solid rgba(176, 38, 255, 0.2);
+}
+
+/* Widget Box */
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #4ADE80;
+    margin-bottom: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #4ADE80;
+}
+
+.dot.pulsing {
+    box-shadow: 0 0 10px #4ADE80;
+    animation: pulseGreen 2s infinite;
+}
+
+@keyframes pulseGreen {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+}
+
+.metrics-row {
+    display: flex;
+    gap: 40px;
+}
+
+.metric {
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-val {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.metric-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   COMMUNICATION HUB (Bottom Right)
+   ========================================= */
+.comm-hub {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 100;
+}
+
+.location-bar {
+    background: var(--bento-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--bento-border);
+    border-radius: 30px;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.location-bar i {
+    color: var(--neon-magenta);
+}
+
+.comm-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--bento-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--bento-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.comm-btn.whatsapp-comm:hover {
+    background: #25D366;
+    border-color: #25D366;
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
+}
+
+.comm-btn.email-comm:hover {
+    background: var(--neon-blue);
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 20px var(--neon-blue-glow);
+}
+
+/* =========================================
+   ANIMATIONS & RESPONSIVE
+   ========================================= */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 {
+    transition-delay: 0.1s;
+}
+
+.delay-2 {
+    transition-delay: 0.2s;
+}
+
+.delay-3 {
+    transition-delay: 0.3s;
+}
+
+.delay-4 {
+    transition-delay: 0.4s;
+}
+
+.delay-5 {
+    transition-delay: 0.5s;
+}
+
+@media (max-width: 1024px) {
+    .bento-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-visual {
+        margin-top: 30px;
+    }
+
+    .stack-card {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    .project-card {
+        grid-column: span 2;
+        flex-direction: column;
+    }
+
+    .project-visual {
+        width: 100%;
+        height: 200px;
+    }
+
+    .card-cta {
+        position: static;
+        margin-top: 20px;
+    }
+
+    .service-card {
+        grid-column: span 1;
+    }
+
+    .project-card-tall {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .bento-container {
+        grid-template-columns: 1fr;
+        margin-top: 100px;
+    }
+
+    .hero-card,
+    .stack-card,
+    .project-card,
+    .service-card,
+    .project-card-tall,
+    .widget-card {
+        grid-column: span 1;
+    }
+
+    .widget-card {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .metrics-row {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .comm-hub {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .location-bar {
+        display: none;
+    }
+}

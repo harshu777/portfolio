@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity V2 | Nebula Edition</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="style-v2.css">
+</head>
+
+<body>
+
+    <!-- Dynamic Background Grain (Noise) -->
+    <div class="noise-bg"></div>
+
+    <!-- Ambient Void Glows -->
+    <div class="void-glow magenta-glow" id="glow1"></div>
+    <div class="void-glow blue-glow" id="glow2"></div>
+    <div class="void-glow violet-glow" id="glow3"></div>
+
+    <!-- Main Navigation -->
+    <nav class="pill-nav fade-in">
+        <a href="#" class="logo">ANTIGRAVITY<span class="v2-badge">v2.0</span></a>
+        <div class="nav-links">
+            <a href="#dashboard">Dashboard</a>
+            <a href="index.html">Legacy V1</a>
+        </div>
+        <a href="#contact" class="btn-neon">Initiate</a>
+    </nav>
+
+    <main id="dashboard" class="bento-container">
+
+        <!-- Bento Item 1: Hero Intro (Span 2 columns) -->
+        <article class="bento-card hero-card tilt-card fade-in">
+            <div class="card-content">
+                <span class="eyebrow">NEBULA PROTOCOL</span>
+                <h1 class="hero-title">
+                    <span class="text-neon-gradient">WEIGHTLESS</span><br>
+                    DIGITAL EXPERIENCES
+                </h1>
+                <p class="hero-desc">
+                    Architecting the future of web interfaces with deep-space aesthetics and responsive bento-box
+                    layouts.
+                </p>
+                <a href="#" class="btn-text">Explore Capabilities <i class="ph-bold ph-arrow-right"></i></a>
+            </div>
+
+            <div class="hero-visual">
+                <!-- Abstract 3D Rings / Core Reactor -->
+                <div class="reactor-core">
+                    <div class="ring ring-1"></div>
+                    <div class="ring ring-2"></div>
+                    <div class="ring ring-3"></div>
+                    <div class="core-spark"></div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Bento Item 2: Core Stack (Span 1 column) -->
+        <article class="bento-card stack-card tilt-card fade-in delay-1">
+            <div class="card-header">
+                <i class="ph-fill ph-cpu card-icon"></i>
+                <h3>Core Stack</h3>
+            </div>
+            <div class="stack-grid">
+                <div class="stack-item"><span>React</span></div>
+                <div class="stack-item"><span>Next.js</span></div>
+                <div class="stack-item"><span>Tailwind</span></div>
+                <div class="stack-item"><span>PostgreSQL</span></div>
+                <div class="stack-item"><span>Node.js</span></div>
+                <div class="stack-item"><span>Docker</span></div>
+            </div>
+        </article>
+
+        <!-- Bento Item 3: Project 1 - AK Portal (Span 2 columns) -->
+        <article class="bento-card project-card tilt-card fade-in delay-2">
+            <div class="project-visual ak-theme">
+                <i class="ph-fill ph-graduation-cap large-icon"></i>
+                <div class="mockup-shimmer"></div>
+            </div>
+            <div class="card-content">
+                <div class="bento-tags">
+                    <span class="bento-tag">LMS</span>
+                    <span class="bento-tag">Analytics</span>
+                </div>
+                <h2>AK Business Solutions</h2>
+                <p>Comprehensive educational portal targeting seamless course administration and secure real-time
+                    student engagement.</p>
+                <a href="#" class="card-cta"><i class="ph-bold ph-arrow-up-right"></i></a>
+            </div>
+        </article>
+
+        <!-- Bento Item 4: Specialized Service (Span 1 column) -->
+        <article class="bento-card service-card tilt-card fade-in delay-3">
+            <div class="service-icon-wrapper">
+                <i class="ph-fill ph-shield-check"></i>
+            </div>
+            <h2>Cyber Sec & DevOps</h2>
+            <p>Automated server defense, system hardening, and resilient CI/CD pipelines.</p>
+        </article>
+
+        <!-- Bento Item 5: Project 2 - Leticia Events (Span 1 column) -->
+        <article class="bento-card project-card-tall tilt-card fade-in delay-4">
+            <div class="card-content">
+                <div class="bento-tags">
+                    <span class="bento-tag magenta">Dynamic UI</span>
+                </div>
+                <h2>Leticia Events</h2>
+                <p>A visually stunning booking platform for premium catering.</p>
+            </div>
+            <div class="project-visual leticia-theme">
+                <i class="ph-fill ph-martini large-icon"></i>
+                <div class="pulse-ring"></div>
+            </div>
+        </article>
+
+        <!-- Bento Item 6: Status / Interactive Widget (Span 2 columns) -->
+        <article class="bento-card widget-card tilt-card fade-in delay-5">
+            <div class="card-content">
+                <h2>System Status</h2>
+                <div class="status-indicator">
+                    <div class="dot pulsing"></div>
+                    <span>All services operational</span>
+                </div>
+                <div class="metrics-row">
+                    <div class="metric">
+                        <span class="metric-val">99.9%</span>
+                        <span class="metric-label">Uptime</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-val">~12ms</span>
+                        <span class="metric-label">Latency</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-val">Zero</span>
+                        <span class="metric-label">Friction</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Fixed Communication Hub -->
+    <div class="comm-hub fade-in delay-5">
+        <a href="#" class="comm-btn whatsapp-comm"><i class="ph-fill ph-whatsapp-logo"></i></a>
+        <a href="#" class="comm-btn email-comm"><i class="ph-fill ph-envelope-simple"></i></a>
+        <div class="location-bar">
+            <i class="ph-fill ph-map-pin"></i> PUNE
+        </div>
+    </div>
+
+    <script src="script-v2.js"></script>
+</body>
+
+</html>
