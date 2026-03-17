@@ -1913,6 +1913,7 @@ main {
         flex-direction: column;
         gap: 24px;
         text-align: center;
+        padding: 24px;
     }
 
     .card-right {
@@ -2169,5 +2170,25 @@ main {
 @media (max-width: 768px) {
     .browser-frame {
         height: 350px;
+    }
+    .project-visual {
+        width: 100%;
+        max-width: 100%;
+        flex: none;
+    }
+    .iframe-scaler {
+        transform: scale(0.26); /* Scaled down for tablet/rotated mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .browser-frame {
+        height: 280px;
+    }
+    .overlap-card {
+        padding: 20px 15px;
+    }
+    .iframe-scaler {
+        transform: scale(0.22); /* Scaled down for smaller phone screens */
     }
 }
