@@ -2172,8 +2172,9 @@ main {
         height: 350px;
     }
     .project-visual {
-        width: 100%;
-        max-width: 100%;
+        width: 100%; /* Default mobile width */
+        max-width: 320px; /* Constrain width on tablets/large phones */
+        margin: 0 auto;
         flex: none;
     }
     .iframe-scaler {
@@ -2187,6 +2188,9 @@ main {
     }
     .overlap-card {
         padding: 20px 15px;
+    }
+    .project-visual {
+        max-width: 280px; /* Constrain width more on small phones */
     }
     .iframe-scaler {
         transform: scale(0.22); /* Scaled down for smaller phone screens */
