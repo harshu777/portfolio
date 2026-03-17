@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balsampada | Best Online Learning Management System (LMS)</title>
+  <meta name="description" content="Balsampada is a premier educational Learning Management System (LMS) offering real-time online video classes, interactive assignments, and comprehensive coaching for CBSE and ICSE students." />
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: ["class"],
+      theme: {
+        container: {
+          center: true,
+          padding: "2rem",
+          screens: {
+            "2xl": "1400px",
+          },
+        },
+        extend: {
+          fontFamily: {
+            heading: ['Playfair Display', 'serif'],
+            body: ['DM Sans', 'sans-serif'],
+          },
+          colors: {
+            border: "hsl(var(--border))",
+            input: "hsl(var(--input))",
+            ring: "hsl(var(--ring))",
+            background: "hsl(var(--background))",
+            foreground: "hsl(var(--foreground))",
+            primary: {
+              DEFAULT: "hsl(var(--primary))",
+              foreground: "hsl(var(--primary-foreground))",
+            },
+            secondary: {
+              DEFAULT: "hsl(var(--secondary))",
+              foreground: "hsl(var(--secondary-foreground))",
+            },
+            destructive: {
+              DEFAULT: "hsl(var(--destructive))",
+              foreground: "hsl(var(--destructive-foreground))",
+            },
+            muted: {
+              DEFAULT: "hsl(var(--muted))",
+              foreground: "hsl(var(--muted-foreground))",
+            },
+            accent: {
+              DEFAULT: "hsl(var(--accent))",
+              foreground: "hsl(var(--accent-foreground))",
+            },
+            popover: {
+              DEFAULT: "hsl(var(--popover))",
+              foreground: "hsl(var(--popover-foreground))",
+            },
+            card: {
+              DEFAULT: "hsl(var(--card))",
+              foreground: "hsl(var(--card-foreground))",
+            },
+          },
+          borderRadius: {
+            lg: "var(--radius)",
+            md: "calc(var(--radius) - 2px)",
+            sm: "calc(var(--radius) - 4px)",
+          },
+          boxShadow: {
+            card: "var(--shadow-card)",
+            "card-hover": "var(--shadow-card-hover)",
+          },
+          keyframes: {
+            "fade-in-up": {
+              from: { opacity: "0", transform: "translateY(24px)" },
+              to: { opacity: "1", transform: "translateY(0)" },
+            },
+          },
+          animation: {
+            "fade-in-up": "fade-in-up 0.6s ease-out forwards",
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    /* CSS Variables from index.css */
+    :root {
+      --background: 40 33% 98%;
+      --foreground: 200 25% 15%;
+      --card: 0 0% 100%;
+      --card-foreground: 200 25% 15%;
+      --popover: 0 0% 100%;
+      --popover-foreground: 200 25% 15%;
+      --primary: 174 42% 40%;
+      --primary-foreground: 0 0% 100%;
+      --secondary: 35 80% 55%;
+      --secondary-foreground: 0 0% 100%;
+      --muted: 40 20% 94%;
+      --muted-foreground: 200 10% 45%;
+      --accent: 174 30% 92%;
+      --accent-foreground: 174 42% 30%;
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 210 40% 98%;
+      --border: 40 15% 88%;
+      --input: 40 15% 88%;
+      --ring: 174 42% 40%;
+      --radius: 0.75rem;
+
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'DM Sans', sans-serif;
+
+      --gradient-hero: linear-gradient(135deg, hsl(174 42% 40% / 0.9), hsl(174 50% 25% / 0.95));
+      --shadow-card: 0 4px 24px -4px hsl(200 25% 15% / 0.08);
+      --shadow-card-hover: 0 8px 32px -4px hsl(200 25% 15% / 0.14);
+    }
+    body {
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
+      font-family: var(--font-body);
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+    }
+    .text-gradient {
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      background-image: linear-gradient(135deg, hsl(174 42% 40%), hsl(35 80% 55%));
+    }
+    /* Simple button base styles to mimic shadcn UI via raw CSS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: calc(var(--radius) - 2px);
+      font-weight: 500;
+      transition-property: color, background-color, border-color, box-shadow;
+      transition-duration: 200ms;
+    }
+    .btn-primary {
+      background-color: hsl(var(--primary));
+      color: hsl(var(--primary-foreground));
+    }
+    .btn-primary:hover {
+      background-color: hsl(var(--primary) / 0.9);
+    }
+    .btn-secondary {
+      background-color: hsl(var(--secondary));
+      color: hsl(var(--secondary-foreground));
+    }
+    .btn-secondary:hover {
+      background-color: hsl(var(--secondary) / 0.8);
+    }
+    .btn-outline {
+      border: 1px solid hsl(var(--input));
+      background-color: hsl(var(--background));
+    }
+    .btn-outline:hover {
+      background-color: hsl(var(--accent));
+      color: hsl(var(--accent-foreground));
+    }
+    .btn-sm {
+      height: 2.25rem;
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+      font-size: 0.875rem;
+    }
+    .btn-lg {
+      height: 2.75rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      font-size: 1rem;
+    }
+    .btn-default {
+      height: 2.5rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      font-size: 0.875rem;
+    }
+  </style>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-screen bg-background">
+  <!-- Header Section -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <div class="container mx-auto px-4 flex items-center justify-between h-16">
+      <a href="/" class="flex items-center gap-2 font-heading text-xl font-bold">
+        <img src="./public/images/logo.webp" alt="Balsampada Platform Logo" class="h-10 w-auto" onerror="this.src='https://placehold.co/150x50/3aa/fff?text=EduMentor'" />
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#home" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Home</a>
+        <a href="#subjects" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Subjects</a>
+        <a href="#about" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">About</a>
+        <a href="#testimonials" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Testimonials</a>
+        <a href="#contact" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Contact</a>
+
+        <a href="/login" class="btn btn-outline btn-sm">Login</a>
+        <a href="/register" class="btn btn-primary btn-sm">Sign Up</a>
+      </nav>
+
+      <!-- Mobile toggle -->
+      <button class="md:hidden text-foreground" id="menu-btn">
+        <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="md:hidden fixed inset-0 z-[100] transition-all duration-300 ease-in-out bg-transparent opacity-0 pointer-events-none">
+    <div id="drawer-menu" class="fixed top-0 right-0 bottom-0 w-[80%] max-w-[300px] bg-background shadow-2xl p-6 transition-transform duration-300 ease-out border-l border-border translate-x-full">
+      <div class="flex justify-between items-center mb-8">
+        <div class="flex items-center gap-2 font-heading text-lg font-bold">
+          <img src="./public/images/logo.webp" alt="Balsampada Platform Logo" class="h-8 w-auto" onerror="this.src='https://placehold.co/150x50/3aa/fff?text=EduMentor'" />
+        </div>
+        <button id="close-btn" class="p-2 hover:bg-muted rounded-full transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <nav class="flex flex-col space-y-4">
+        <a href="#home" class="mobile-nav-link text-base font-medium text-muted-foreground hover:text-primary transition-colors py-2 border-b border-border/50">Home</a>
+        <a href="#subjects" class="mobile-nav-link text-base font-medium text-muted-foreground hover:text-primary transition-colors py-2 border-b border-border/50">Subjects</a>
+        <a href="#about" class="mobile-nav-link text-base font-medium text-muted-foreground hover:text-primary transition-colors py-2 border-b border-border/50">About</a>
+        <a href="#testimonials" class="mobile-nav-link text-base font-medium text-muted-foreground hover:text-primary transition-colors py-2 border-b border-border/50">Testimonials</a>
+        <a href="#contact" class="mobile-nav-link text-base font-medium text-muted-foreground hover:text-primary transition-colors py-2 border-b border-border/50">Contact</a>
+
+        <div class="pt-4 space-y-3">
+          <a href="/login" class="btn btn-outline btn-default w-full justify-start mobile-nav-link gap-2 flex items-center">Login</a>
+          <a href="/register" class="btn btn-primary btn-default w-full justify-start mobile-nav-link gap-2 flex items-center">Sign Up</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative min-h-[90vh] flex items-center pt-16">
+    <div class="absolute inset-0">
+      <img src="./src/assets/hero-bg.webp" alt="Students learning in a modern classroom environment" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2000&auto=format&fit=crop'" />
+      <div class="absolute inset-0" style="background: var(--gradient-hero)"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-2xl space-y-6">
+        <p class="text-primary-foreground/80 font-medium text-sm uppercase tracking-widest animate-fade-in-up">
+          Premier Online Learning Management System
+        </p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary-foreground leading-tight animate-fade-in-up" style="animation-delay: 0.1s">
+          Unlock Your Child's <span class="text-secondary">Educational Potential</span>
+        </h1>
+        <p class="text-lg text-primary-foreground/85 max-w-lg animate-fade-in-up" style="animation-delay: 0.2s">
+          Comprehensive online coaching in Maths, Science & English for CBSE, ICSE, and State Boards. Build strong fundamentals through our interactive digital classrooms.
+        </p>
+        <div class="flex flex-wrap gap-4 animate-fade-in-up" style="animation-delay: 0.3s">
+          <a href="#contact" class="btn btn-secondary btn-lg">Book a Free Demo</a>
+          <a href="#subjects" class="btn btn-lg bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white/20 transition-all duration-300 shadow-sm hover:scale-105">View Subjects</a>
+        </div>
+      </div>
+
+      <!-- Stats bar -->
+      <div class="mt-16 grid grid-cols-3 gap-4 max-w-lg animate-fade-in-up" style="animation-delay: 0.4s">
+        <div class="text-center bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-4">
+          <i data-lucide="users" class="w-5 h-5 text-secondary mx-auto mb-1"></i>
+          <p class="text-2xl font-bold text-primary-foreground">500+</p>
+          <p class="text-xs text-primary-foreground/70">Students Taught</p>
+        </div>
+        <div class="text-center bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-4">
+          <i data-lucide="book-open" class="w-5 h-5 text-secondary mx-auto mb-1"></i>
+          <p class="text-2xl font-bold text-primary-foreground">10+</p>
+          <p class="text-xs text-primary-foreground/70">Years Experience</p>
+        </div>
+        <div class="text-center bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-4">
+          <i data-lucide="award" class="w-5 h-5 text-secondary mx-auto mb-1"></i>
+          <p class="text-2xl font-bold text-primary-foreground">95%</p>
+          <p class="text-xs text-primary-foreground/70">Success Rate</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subjects Section -->
+  <section id="subjects" class="py-20 bg-muted/50">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-xl mx-auto mb-14">
+        <p class="text-sm font-semibold text-primary uppercase tracking-widest mb-2">What We Teach</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-foreground">Subjects We Offer</h2>
+        <p class="mt-3 text-muted-foreground">Comprehensive online coaching and interactive live classes across all major subjects for CBSE, ICSE, and State Board students from 5th through 12th standard.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300 group">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 bg-primary/10 text-primary group-hover:scale-110 transition-transform">
+            <i data-lucide="calculator" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-heading font-semibold text-card-foreground mb-2">Mathematics</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">Algebra, Geometry, Calculus & more. Strong problem-solving skills for every board.</p>
+        </div>
+        
+        <div class="bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300 group">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 bg-secondary/10 text-secondary group-hover:scale-110 transition-transform">
+            <i data-lucide="flask-conical" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-heading font-semibold text-card-foreground mb-2">Science</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">Physics, Chemistry & Biology with hands-on experiments and conceptual clarity.</p>
+        </div>
+
+        <div class="bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300 group">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 bg-accent text-accent-foreground group-hover:scale-110 transition-transform">
+            <i data-lucide="book-text" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-heading font-semibold text-card-foreground mb-2">English</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">Grammar, comprehension, essay writing & literature for confident communication.</p>
+        </div>
+
+        <div class="bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300 group">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 bg-primary/10 text-primary group-hover:scale-110 transition-transform">
+            <i data-lucide="globe" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-heading font-semibold text-card-foreground mb-2">Social Studies</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">History, Geography, Civics & Economics made engaging and easy to remember.</p>
+        </div>
+
+        <div class="bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300 group">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 bg-secondary/10 text-secondary group-hover:scale-110 transition-transform">
+            <i data-lucide="atom" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-heading font-semibold text-card-foreground mb-2">Physics (11-12)</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">Advanced concepts, numerical practice & board + competitive exam preparation.</p>
+        </div>
+
+        <div class="bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300 group">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 bg-accent text-accent-foreground group-hover:scale-110 transition-transform">
+            <i data-lucide="code" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-heading font-semibold text-card-foreground mb-2">Computer Science</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">Programming fundamentals, data structures & practical problem-solving.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+        <!-- Left -->
+        <div>
+          <p class="text-sm font-semibold text-primary uppercase tracking-widest mb-2">Why Choose Us</p>
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+            Quality Education, <span class="text-gradient">Personal Touch</span>
+          </h2>
+          <p class="text-muted-foreground leading-relaxed mb-6">
+            We believe every student learns differently. Our comprehensive Learning Management System (LMS) provides a personalized approach focused on building strong fundamentals for CBSE, ICSE, and State Board exams. Through interactive online classes and small batch sizes, each student gets the exact attention they deserve.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-sm text-foreground">
+              <i data-lucide="check-circle" class="w-5 h-5 text-primary flex-shrink-0"></i> 10+ years of teaching experience
+            </li>
+            <li class="flex items-center gap-3 text-sm text-foreground">
+              <i data-lucide="check-circle" class="w-5 h-5 text-primary flex-shrink-0"></i> CBSE, ICSE & State Board expertise
+            </li>
+            <li class="flex items-center gap-3 text-sm text-foreground">
+              <i data-lucide="check-circle" class="w-5 h-5 text-primary flex-shrink-0"></i> Small batch sizes for personal attention
+            </li>
+            <li class="flex items-center gap-3 text-sm text-foreground">
+              <i data-lucide="check-circle" class="w-5 h-5 text-primary flex-shrink-0"></i> Regular tests & progress reports
+            </li>
+            <li class="flex items-center gap-3 text-sm text-foreground">
+              <i data-lucide="check-circle" class="w-5 h-5 text-primary flex-shrink-0"></i> Doubt-clearing sessions every week
+            </li>
+            <li class="flex items-center gap-3 text-sm text-foreground">
+              <i data-lucide="check-circle" class="w-5 h-5 text-primary flex-shrink-0"></i> Affordable & flexible fee structure
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right -->
+        <div class="relative">
+          <div class="bg-primary/5 rounded-2xl p-8 border border-primary/10">
+            <div class="grid grid-cols-2 gap-6 text-center">
+              <div class="bg-card rounded-xl p-5 shadow-card">
+                <p class="text-3xl font-bold text-primary">500+</p>
+                <p class="text-xs text-muted-foreground mt-1">Students Mentored</p>
+              </div>
+              <div class="bg-card rounded-xl p-5 shadow-card">
+                <p class="text-3xl font-bold text-secondary">95%</p>
+                <p class="text-xs text-muted-foreground mt-1">Score Above 80%</p>
+              </div>
+              <div class="bg-card rounded-xl p-5 shadow-card">
+                <p class="text-3xl font-bold text-primary">8</p>
+                <p class="text-xs text-muted-foreground mt-1">Subjects Covered</p>
+              </div>
+              <div class="bg-card rounded-xl p-5 shadow-card">
+                <p class="text-3xl font-bold text-secondary">4.9★</p>
+                <p class="text-xs text-muted-foreground mt-1">Parent Rating</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="py-20 bg-muted/50">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-xl mx-auto mb-14">
+        <p class="text-sm font-semibold text-primary uppercase tracking-widest mb-2">Testimonials</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-foreground">What Parents & Students Say</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300">
+          <div class="flex gap-0.5 mb-4 text-secondary fill-secondary">
+            <i data-lucide="star" class="w-4 h-4 fill-secondary"></i><i data-lucide="star" class="w-4 h-4 fill-secondary"></i><i data-lucide="star" class="w-4 h-4 fill-secondary"></i><i data-lucide="star" class="w-4 h-4 fill-secondary"></i><i data-lucide="star" class="w-4 h-4 fill-secondary"></i>
+          </div>
+          <p class="text-sm text-muted-foreground leading-relaxed mb-5 italic">"My daughter's Maths score improved from 65 to 92 in just 6 months. The personalised attention through their online classes made all the difference!"</p>
+          <div>
+            <p class="font-semibold text-card-foreground text-sm">Priya Sharma</p>
+            <p class="text-xs text-muted-foreground">Parent of Class 10 Student</p>
+          </div>
+        </div>
+
+        <div class="bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300">
+          <div class="flex gap-0.5 mb-4 text-secondary fill-secondary">
+            <i data-lucide="star" class="w-4 h-4 fill-secondary"></i><i data-lucide="star" class="w-4 h-4 fill-secondary"></i><i data-lucide="star" class="w-4 h-4 fill-secondary"></i><i data-lucide="star" class="w-4 h-4 fill-secondary"></i><i data-lucide="star" class="w-4 h-4 fill-secondary"></i>
+          </div>
+          <p class="text-sm text-muted-foreground leading-relaxed mb-5 italic">"The online learning platform and teaching methods for Physics are excellent. My son cleared JEE Mains with a great score thanks to the strong foundation built here."</p>
+          <div>
+            <p class="font-semibold text-card-foreground text-sm">Rajesh Patel</p>
+            <p class="text-xs text-muted-foreground">Parent of Class 12 Student</p>
+          </div>
+        </div>
+
+        <div class="bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300">
+          <div class="flex gap-0.5 mb-4 text-secondary fill-secondary">
+            <i data-lucide="star" class="w-4 h-4 fill-secondary"></i><i data-lucide="star" class="w-4 h-4 fill-secondary"></i><i data-lucide="star" class="w-4 h-4 fill-secondary"></i><i data-lucide="star" class="w-4 h-4 fill-secondary"></i><i data-lucide="star" class="w-4 h-4 fill-secondary"></i>
+          </div>
+          <p class="text-sm text-muted-foreground leading-relaxed mb-5 italic">"I used to be scared of Science, but now it's my favourite subject! The interactive digital experiments and real-life examples make it so interesting."</p>
+          <div>
+            <p class="font-semibold text-card-foreground text-sm">Ananya Verma</p>
+            <p class="text-xs text-muted-foreground">Class 9 Student</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-xl mx-auto mb-14">
+        <p class="text-sm font-semibold text-primary uppercase tracking-widest mb-2">Get In Touch</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-foreground">Join Our Online Learning Platform Today</h2>
+        <p class="mt-3 text-muted-foreground">Fill the form below or reach out directly. We offer a free interactive online demo class for CBSE, ICSE, and State Board!</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+        <!-- Form -->
+        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Message Saved. We\'ll contact you soon!');">
+          <input type="text" placeholder="Student / Parent Name" required class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" />
+          <input type="tel" placeholder="Phone Number" required class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" />
+          
+          <div class="relative">
+            <select required class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+              <option value="" disabled selected>Select Class / Grade</option>
+              <option value="5th Grade">5th Grade</option>
+              <option value="6th Grade">6th Grade</option>
+              <option value="7th Grade">7th Grade</option>
+              <option value="8th Grade">8th Grade</option>
+              <option value="9th Grade">9th Grade</option>
+              <option value="10th Grade">10th Grade</option>
+              <option value="11th Grade">11th Grade</option>
+              <option value="12th Grade">12th Grade</option>
+            </select>
+          </div>
+
+          <textarea placeholder="Your message or subject preferences..." rows="4" class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"></textarea>
+          <button type="submit" class="btn btn-primary btn-lg w-full">Send Enquiry</button>
+        </form>
+
+        <!-- Contact info -->
+        <div class="space-y-6 flex flex-col justify-center">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="phone" class="w-5 h-5 text-primary"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-foreground text-sm">Phone</p>
+              <p class="text-muted-foreground text-sm">+91 86690 46304</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="mail" class="w-5 h-5 text-primary"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-foreground text-sm">Email</p>
+              <p class="text-muted-foreground text-sm">contact@balsampada.com</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="map-pin" class="w-5 h-5 text-primary"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-foreground text-sm">Location</p>
+              <p class="text-muted-foreground text-sm">Bhukum, Pune</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-foreground py-10">
+    <div class="container mx-auto px-4 text-center">
+      <a href="#home" class="inline-flex items-center gap-2 text-background font-heading text-lg font-bold mb-3">
+        <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+        EduMentor
+      </a>
+      <p class="text-background/60 text-sm max-w-md mx-auto">
+        Empowering students from 5th to 12th standard with quality education and personalised mentoring.
+      </p>
+      <div class="mt-6 border-t border-background/10 pt-4">
+        <p class="text-background/40 text-xs">© 2026 EduMentor. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Mobile menu toggle logic
+    const menuBtn = document.getElementById('menu-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    const drawerMenu = document.getElementById('drawer-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    function openMenu() {
+      mobileDrawer.classList.remove('bg-transparent', 'opacity-0', 'pointer-events-none');
+      mobileDrawer.classList.add('bg-black/50', 'backdrop-blur-sm', 'opacity-100', 'pointer-events-auto');
+      drawerMenu.classList.remove('translate-x-full');
+      drawerMenu.classList.add('translate-x-0');
+    }
+
+    function closeMenu() {
+      mobileDrawer.classList.remove('bg-black/50', 'backdrop-blur-sm', 'opacity-100', 'pointer-events-auto');
+      mobileDrawer.classList.add('bg-transparent', 'opacity-0', 'pointer-events-none');
+      drawerMenu.classList.remove('translate-x-0');
+      drawerMenu.classList.add('translate-x-full');
+    }
+
+    menuBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    mobileDrawer.addEventListener('click', closeMenu);
+    drawerMenu.addEventListener('click', (e) => e.stopPropagation());
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+  </script>
+</body>
+</html>
