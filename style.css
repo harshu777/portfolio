@@ -19,7 +19,7 @@
     --glass-shadow-hover: 0 20px 40px -10px rgba(99, 102, 241, 0.15);
 
     /* Typography */
-    --font-heading: 'Outfit', sans-serif;
+    --font-heading: 'Space Grotesk', sans-serif;
     --font-body: 'Inter', sans-serif;
 }
 
@@ -40,6 +40,19 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     min-height: 100vh;
+    position: relative;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03; /* Very subtle */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 /* Custom Scrollbar */
@@ -1253,6 +1266,32 @@ main {
     align-items: center;
     gap: 50px;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+}
+
+/* Spotlight Hover Effect */
+.bento-box::before,
+.glass-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        800px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+        rgba(99, 102, 241, 0.08),
+        transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.bento-box:hover::before,
+.glass-card:hover::before {
+    opacity: 1;
 }
 
 .overlap-card:hover {
