@@ -616,6 +616,99 @@ main {
 }
 
 /* =========================================
+   STATS STRIP 
+   ========================================= */
+.stats-strip {
+    max-width: 1200px;
+    margin: 40px auto 20px;
+    padding: 30px 40px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: var(--glass-shadow);
+    text-align: center;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    min-width: 150px;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+    background: linear-gradient(135deg, var(--accent-indigo), var(--accent-rose));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+    margin-bottom: 5px;
+}
+
+.stat-plus {
+    font-size: 1.5rem;
+    color: var(--accent-indigo);
+    -webkit-text-fill-color: initial;
+    vertical-align: top;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-divider {
+    width: 2px;
+    height: 40px;
+    background: rgba(99, 102, 241, 0.2);
+}
+
+.stats-source {
+    margin-top: 25px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.stats-source a {
+    color: var(--accent-indigo);
+    font-weight: 600;
+}
+
+.stats-source a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .stat-divider {
+        width: 60px;
+        height: 2px;
+    }
+}
+
+/* =========================================
    EXPERIENCE / TIMELINE SECTION 
    ========================================= */
 .experience-section {
