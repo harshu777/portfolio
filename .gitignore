@@ -1,2 +1,13 @@
 version/
 .DS_Store
+
+# Temporary roadmap files
+.temp_roadmap.html
+.temp_roadmap_css.txt
+
+# Screenshot tools
+screenshot.js
+screenshot_v2.js
+screenshot.py
+mobile_view.png
+v2_full.png
