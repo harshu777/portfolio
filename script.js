@@ -59,17 +59,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Dynamic Spotlight Hover Effect
-    const spotlightCards = document.querySelectorAll('.bento-box, .glass-card');
-    
-    document.addEventListener('mousemove', (e) => {
-        spotlightCards.forEach((card) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            card.style.setProperty('--mouse-x', `${x}px`);
-            card.style.setProperty('--mouse-y', `${y}px`);
+    // Active navigation highlighting on scroll using Intersection Observer
+    const navLinks = document.querySelectorAll('.cmd-nav .cmd-link');
+    const sections = Array.from(navLinks)
+        .map(link => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+
+    const navObserverOptions = {
+        root: null,
+        rootMargin: '-40% 0px -40% 0px', // Trigger when section occupies the middle portion of the viewport
+        threshold: 0
+    };
+
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const activeId = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === `#${activeId}`) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
         });
+    }, navObserverOptions);
+
+    sections.forEach(section => {
+        navObserver.observe(section);
     });
 });
