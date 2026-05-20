@@ -206,6 +206,125 @@
 
     <div class="container">
 
+        <!-- DEVSECOPS_STACK -->
+        <section id="stack" class="stack-section" style="padding-top: 40px;">
+            <div class="section-head">
+                <h2>DEVSECOPS_STACK</h2>
+                <span class="sys-tag">[ACTIVE_ENGINES]</span>
+            </div>
+
+            <div class="stack-grid">
+                
+                <!-- Category 1: Pipeline Security -->
+                <div class="stack-category">
+                    <div class="stack-cat-header">
+                        <span>01_PIPELINE_SECURITY</span>
+                        <span class="sys-tag">[SECURE]</span>
+                    </div>
+                    <div class="stack-cat-body">
+                        <a class="stack-tool" href="https://semgrep.dev/" target="_blank">
+                            <i class="ph-bold ph-shield-check"></i> Semgrep <span>SAST</span>
+                        </a>
+                        <a class="stack-tool" href="https://github.com/gitleaks/gitleaks" target="_blank">
+                            <i class="ph-bold ph-key"></i> Gitleaks <span>Secrets</span>
+                        </a>
+                        <a class="stack-tool" href="https://github.com/anchore/grype" target="_blank">
+                            <i class="ph-bold ph-bug"></i> Grype <span>SCA</span>
+                        </a>
+                        <a class="stack-tool" href="https://www.zaproxy.org/" target="_blank">
+                            <i class="ph-bold ph-lightning"></i> OWASP ZAP <span>DAST</span>
+                        </a>
+                        <a class="stack-tool" href="https://kubescape.io/" target="_blank">
+                            <i class="ph-bold ph-hexagon"></i> Kubescape <span>K8s Audit</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Category 2: Infrastructure as Code -->
+                <div class="stack-category">
+                    <div class="stack-cat-header">
+                        <span>02_INFRASTRUCTURE</span>
+                        <span class="sys-tag">[PROVISION]</span>
+                    </div>
+                    <div class="stack-cat-body">
+                        <a class="stack-tool" href="https://www.terraform.io/" target="_blank">
+                            <i class="ph-bold ph-tree-structure"></i> Terraform <span>IaC</span>
+                        </a>
+                        <a class="stack-tool" href="https://www.ansible.com/" target="_blank">
+                            <i class="ph-bold ph-sliders"></i> Ansible <span>Config</span>
+                        </a>
+                        <a class="stack-tool" href="https://www.docker.com/" target="_blank">
+                            <i class="ph-bold ph-package"></i> Docker <span>Containers</span>
+                        </a>
+                        <a class="stack-tool" href="https://kubernetes.io/" target="_blank">
+                            <i class="ph-bold ph-steering-wheel"></i> Kubernetes <span>Orchestr</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Category 3: CI/CD & GitOps -->
+                <div class="stack-category">
+                    <div class="stack-cat-header">
+                        <span>03_CI_CD_GITOPS</span>
+                        <span class="sys-tag">[AUTOMATE]</span>
+                    </div>
+                    <div class="stack-cat-body">
+                        <a class="stack-tool" href="https://github.com/features/actions" target="_blank">
+                            <i class="ph-bold ph-git-branch"></i> GitHub Actions <span>CI/CD</span>
+                        </a>
+                        <a class="stack-tool" href="https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/" target="_blank">
+                            <i class="ph-bold ph-git-commit"></i> GitLab CI <span>Pipelines</span>
+                        </a>
+                        <a class="stack-tool" href="https://argoproj.github.io/cd/" target="_blank">
+                            <i class="ph-bold ph-arrows-clockwise"></i> ArgoCD <span>GitOps</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Category 4: Observability -->
+                <div class="stack-category">
+                    <div class="stack-cat-header">
+                        <span>04_OBSERVABILITY</span>
+                        <span class="sys-tag">[MONITOR]</span>
+                    </div>
+                    <div class="stack-cat-body">
+                        <a class="stack-tool" href="https://prometheus.io/" target="_blank">
+                            <i class="ph-bold ph-activity"></i> Prometheus <span>Metrics</span>
+                        </a>
+                        <a class="stack-tool" href="https://grafana.com/" target="_blank">
+                            <i class="ph-bold ph-chart-line-up"></i> Grafana <span>Dashboards</span>
+                        </a>
+                        <a class="stack-tool" href="https://newrelic.com/" target="_blank">
+                            <i class="ph-bold ph-waveform"></i> New Relic <span>APM</span>
+                        </a>
+                        <a class="stack-tool" href="https://www.zabbix.com/" target="_blank">
+                            <i class="ph-bold ph-desktop-tower"></i> Zabbix <span>Infra</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Category 5: Agentic AI -->
+                <div class="stack-category">
+                    <div class="stack-cat-header">
+                        <span>05_AGENTIC_AI</span>
+                        <span class="sys-tag">[INTEGRATE]</span>
+                    </div>
+                    <div class="stack-cat-body">
+                        <a class="stack-tool" href="https://www.anthropic.com/claude" target="_blank">
+                            <i class="ph-bold ph-brain"></i> Claude AI <span>Reasoning</span>
+                        </a>
+                        <a class="stack-tool" href="https://modelcontextprotocol.io/" target="_blank">
+                            <i class="ph-bold ph-robot"></i> MCP Agents <span>Workflows</span>
+                        </a>
+                        <a class="stack-tool" href="https://deepmind.google/technologies/gemini/" target="_blank">
+                            <i class="ph-bold ph-magic-wand"></i> Gemini API <span>Analysis</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
         <!-- SHOWCASE (ALL PROJECTS UNIFORM) -->
         <section id="showcase" class="showcase">
             <div class="section-head">
@@ -408,125 +527,6 @@
                         <li>PostgreSQL & Supabase</li>
                         <li>Tailwind & Framer Motion</li>
                     </ul>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- DEVSECOPS_STACK -->
-        <section id="stack" class="stack-section">
-            <div class="section-head">
-                <h2>DEVSECOPS_STACK</h2>
-                <span class="sys-tag">[ACTIVE_ENGINES]</span>
-            </div>
-
-            <div class="stack-grid">
-                
-                <!-- Category 1: Pipeline Security -->
-                <div class="stack-category">
-                    <div class="stack-cat-header">
-                        <span>01_PIPELINE_SECURITY</span>
-                        <span class="sys-tag">[SECURE]</span>
-                    </div>
-                    <div class="stack-cat-body">
-                        <a class="stack-tool" href="https://semgrep.dev/" target="_blank">
-                            <i class="ph-bold ph-shield-check"></i> Semgrep <span>SAST</span>
-                        </a>
-                        <a class="stack-tool" href="https://github.com/gitleaks/gitleaks" target="_blank">
-                            <i class="ph-bold ph-key"></i> Gitleaks <span>Secrets</span>
-                        </a>
-                        <a class="stack-tool" href="https://github.com/anchore/grype" target="_blank">
-                            <i class="ph-bold ph-bug"></i> Grype <span>SCA</span>
-                        </a>
-                        <a class="stack-tool" href="https://www.zaproxy.org/" target="_blank">
-                            <i class="ph-bold ph-lightning"></i> OWASP ZAP <span>DAST</span>
-                        </a>
-                        <a class="stack-tool" href="https://kubescape.io/" target="_blank">
-                            <i class="ph-bold ph-hexagon"></i> Kubescape <span>K8s Audit</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Category 2: Infrastructure as Code -->
-                <div class="stack-category">
-                    <div class="stack-cat-header">
-                        <span>02_INFRASTRUCTURE</span>
-                        <span class="sys-tag">[PROVISION]</span>
-                    </div>
-                    <div class="stack-cat-body">
-                        <a class="stack-tool" href="https://www.terraform.io/" target="_blank">
-                            <i class="ph-bold ph-tree-structure"></i> Terraform <span>IaC</span>
-                        </a>
-                        <a class="stack-tool" href="https://www.ansible.com/" target="_blank">
-                            <i class="ph-bold ph-sliders"></i> Ansible <span>Config</span>
-                        </a>
-                        <a class="stack-tool" href="https://www.docker.com/" target="_blank">
-                            <i class="ph-bold ph-package"></i> Docker <span>Containers</span>
-                        </a>
-                        <a class="stack-tool" href="https://kubernetes.io/" target="_blank">
-                            <i class="ph-bold ph-steering-wheel"></i> Kubernetes <span>Orchestr</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Category 3: CI/CD & GitOps -->
-                <div class="stack-category">
-                    <div class="stack-cat-header">
-                        <span>03_CI_CD_GITOPS</span>
-                        <span class="sys-tag">[AUTOMATE]</span>
-                    </div>
-                    <div class="stack-cat-body">
-                        <a class="stack-tool" href="https://github.com/features/actions" target="_blank">
-                            <i class="ph-bold ph-git-branch"></i> GitHub Actions <span>CI/CD</span>
-                        </a>
-                        <a class="stack-tool" href="https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/" target="_blank">
-                            <i class="ph-bold ph-git-commit"></i> GitLab CI <span>Pipelines</span>
-                        </a>
-                        <a class="stack-tool" href="https://argoproj.github.io/cd/" target="_blank">
-                            <i class="ph-bold ph-arrows-clockwise"></i> ArgoCD <span>GitOps</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Category 4: Observability -->
-                <div class="stack-category">
-                    <div class="stack-cat-header">
-                        <span>04_OBSERVABILITY</span>
-                        <span class="sys-tag">[MONITOR]</span>
-                    </div>
-                    <div class="stack-cat-body">
-                        <a class="stack-tool" href="https://prometheus.io/" target="_blank">
-                            <i class="ph-bold ph-activity"></i> Prometheus <span>Metrics</span>
-                        </a>
-                        <a class="stack-tool" href="https://grafana.com/" target="_blank">
-                            <i class="ph-bold ph-chart-line-up"></i> Grafana <span>Dashboards</span>
-                        </a>
-                        <a class="stack-tool" href="https://newrelic.com/" target="_blank">
-                            <i class="ph-bold ph-waveform"></i> New Relic <span>APM</span>
-                        </a>
-                        <a class="stack-tool" href="https://www.zabbix.com/" target="_blank">
-                            <i class="ph-bold ph-desktop-tower"></i> Zabbix <span>Infra</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Category 5: Agentic AI -->
-                <div class="stack-category">
-                    <div class="stack-cat-header">
-                        <span>05_AGENTIC_AI</span>
-                        <span class="sys-tag">[INTEGRATE]</span>
-                    </div>
-                    <div class="stack-cat-body">
-                        <a class="stack-tool" href="https://www.anthropic.com/claude" target="_blank">
-                            <i class="ph-bold ph-brain"></i> Claude AI <span>Reasoning</span>
-                        </a>
-                        <a class="stack-tool" href="https://modelcontextprotocol.io/" target="_blank">
-                            <i class="ph-bold ph-robot"></i> MCP Agents <span>Workflows</span>
-                        </a>
-                        <a class="stack-tool" href="https://deepmind.google/technologies/gemini/" target="_blank">
-                            <i class="ph-bold ph-magic-wand"></i> Gemini API <span>Analysis</span>
-                        </a>
-                    </div>
                 </div>
 
             </div>
