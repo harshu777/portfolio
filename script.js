@@ -58,4 +58,35 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Active navigation highlighting on scroll using Intersection Observer
+    const navLinks = document.querySelectorAll('.cmd-nav .cmd-link');
+    const sections = Array.from(navLinks)
+        .map(link => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+
+    const navObserverOptions = {
+        root: null,
+        rootMargin: '-40% 0px -40% 0px', // Trigger when section occupies the middle portion of the viewport
+        threshold: 0
+    };
+
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const activeId = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === `#${activeId}`) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+        });
+    }, navObserverOptions);
+
+    sections.forEach(section => {
+        navObserver.observe(section);
+    });
 });
